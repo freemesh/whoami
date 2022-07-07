@@ -2,7 +2,7 @@
 打印操作系统信息和 HTTP 请求等信息的服务
 # docker
 ```
-docker run -d -p 8080:80 --name foo freemesh/whoami
+docker run -d -p 8080:8080 --name foo freemesh/whoami
 ```
 
 # api
