@@ -27,7 +27,7 @@ func main() {
 	http.HandleFunc("/healthz", healthz)
 	http.HandleFunc("/", whoami)
 	if port == "" {
-		port = "80"
+		port = "8080"
 	}
 	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
