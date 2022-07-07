@@ -2,11 +2,14 @@ VERSION=$(shell git describe --tags --always)
 
 .PHONY: docker.build
 docker.build:
-	docker build --build-arg APP_VERSION=$(VERSION) -t freemesh/whoami:$(VERSION) .
+	docker build --build-arg APP_VERSION=$(VERSION) -t freemesh/whoami .
 
 .PHONY: docker.push
 docker.push:
+	docker push freemesh/whoami
+	docker tag freemesh/whoami freemesh/whoami:$(VERSION)
 	docker push freemesh/whoami:$(VERSION)
+
 
 .PHONY: docker.all
 docker.all:docker.build docker.push

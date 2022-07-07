@@ -3,7 +3,6 @@ ARG APP_VERSION
 WORKDIR /go/src/project/
 COPY . /go/src/project/
 RUN go build -ldflags "-X main.Version=${APP_VERSION}" -o /bin/whoami ./main.go
-RUN echo ${APP_VERSION}
 FROM alpine:3.5
 COPY --from=build /bin/whoami /bin/whoami
 EXPOSE 8080
